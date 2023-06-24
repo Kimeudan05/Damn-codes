@@ -131,3 +131,18 @@ import numpy as np
 x=np.random.normal(170,10,250)
 plt.hist(x)
 plt.show()
+
+###############################################pie
+# remember pie() function, legend, colors, explode,labels,startangle
+# by default satart angle is on x axis counter clockwise
+import matplotlib.pyplot as plt
+import numpy as np
+
+y = np.array([35, 25, 25, 15])
+mylabels = ["Apples", "Bananas", "Cherries", "Dates"]
+
+colors=np.array(['b','r','m','hotpink'])
+myexplode=[0,0.3,0,0]
+plt.pie(y,colors=colors, labels = mylabels, startangle=90 ,explode=myexplode)
+plt.legend(title = "Four Fruits:")
+plt.show() 
