@@ -1,3 +1,5 @@
+@############adding fonts
+
 import matplotlib.pyplot as dan
 import numpy as carol
 
@@ -14,3 +16,16 @@ dan.ylabel("daniel trials" ,fontdict=font2)
 dan.plot(x,y ,marker="X")
 
 dan.show()
+
+##########################grid addition in pythopn matplotlib
+
+import matplotlib.pyplot as masila
+import numpy as np
+
+x=np.array([2,3,4,5])
+y=np.array([5,6,7,8])
+
+masila.plot(x,y ,marker="*")
+masila.grid(color = 'green', linestyle = '--', linewidth = 0.5)
+
+masila.show()
