@@ -1,0 +1,246 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+body{
+    background-color: #eee;
+    scroll-behavior: smooth;
+}
+.contain-all{
+    position: relative;
+}
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+  }
+.logo{
+    width:60vw;
+}
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: fixed;
+    width: 90vw;
+   background-color: #eee;
+   top: 0;
+   min-height: 75px;
+   padding: 0 20px;
+  
+}
+#header-img{
+    width: 200px;
+    height: 30px;
+}
+#nav-bar{
+    
+    font-weight: 900;
+    width: 40vw;
+    font-size: 1.3rem
+    
+
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}
+li{
+   list-style: none;
+  
+}
+a{
+    color:black;
+    text-decoration: none;
+
+}
+#juju{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    margin-top: 50px;
+  
+}
+#juju h2{
+    margin-bottom: 10px;
+}
+
+#juju input[type = 'email']{
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#juju input[type = 'submit']{
+    padding: 10px;
+    background-color: yellow;
+    width: 50%;
+}
+
+.kilo{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 50px;
+   
+}
+.icons{
+    
+    display: flex;
+    color: orange;
+    width: 30vw;
+    font-size: 50px;
+    max-width: 30vw;
+    min-width: 30vw;
+    margin-left: 10vh;
+
+}
+
+#howItWorks{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  
+}
+iframe{
+    width: 500px;
+    height: 300px;
+}
+
+#Pricing{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 60px;
+    
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: calc(100%/3);
+    border: 2px solid #000;
+    margin: 10px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.card .title{
+    background-color: aqua;
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
+}
+.card h2{
+    color:blue;
+    text-align: center;
+}
+.card li{
+    font-size: 1.3rem;
+}
+.card button{
+    padding: 10px;
+    width: 80px;
+    background-color: yellow;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.card button:hover{
+    background-color: #fff;
+    color: #aaa;
+    transition: .2s;
+    font-size: 1.3rem;
+}
+footer{
+  
+  background-color: #ddd;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 20px;
+
+}
+footer ol{
+    display: flex;
+    justify-content: flex-end;
+    
+   
+}
+footer ol li{
+    padding: 0 15px;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+footer > span{
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+
+}
+
+/* responsib=ve designs */
+@media (max-width:800px){
+    
+    #card{
+        max-width:300px;
+        min-width: 300px;
+        width: 100%;
+        margin-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+}
+@media(max-width:650px){
+    #Pricing{
+        flex-direction: column;
+       margin-left: 40vw;
+       width: 100%;
+    }
+    #card{
+        width: 100%;
+    }
+    #features{
+        margin-left: 5vh;
+        
+    }
+    .description{
+        text-align: center;
+        font-size: 1.2rem;
+    }
+    .icons{
+        display: none;
+    }
+    #header{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    nav{
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+    #nav-bar ::after{
+        padding: 30px;
+    }
+}
