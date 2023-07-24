@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to speech </title>
+    <link rel="stylesheet" href="mazii.css">
+</head>
+<style>
+    .hero{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(45deg, #010758, #490d61);
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    justify-content: center;
+}.hero h1{
+    font-size: 45px;
+    margin-top: -50px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+.hero h1 span{
+color: #ff2963;
+}
+textarea{
+    width: 600px;
+    height: 250px;
+    background:#403d84;
+    color: #fff;
+    outline: 0;
+    padding: 20px;
+    border-radius: 10px;
+    resize: none;
+    margin-bottom: 30px;
+    font-size: 1.3rem;
+    border: 0;
+}
+textarea ::placeholder{
+    color: #ddd;
+}
+.row{
+    width: 600px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+button{
+    background-color: #ff2963;
+    color: #fff;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+}
+button:hover{
+    background-color: #002944;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 20px;
+    font-size:1.7rem;
+}
+select{
+    flex: 1;/* use internal space available in the row*/
+    color: #fff;
+    background-color: #403d84;
+    height: 50px;
+    padding: 0 20px;
+    outline: 0;
+    border: 0;
+    border-radius: 35px;
+    /* appearance: none; */
+    /*  hide dropdown icon */
+    background-image: '';
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position-x:calc(100%- 20px);
+    background-position-y:20px;
+}
+</style>
+<body>
+    
+    <div class="hero">
+        <h1>Text to speech <span>Converter</span></h1>
+        <textarea placeholder="write here ..."></textarea>
+        <div class="row">
+            <select></select>
+            <button>Listen</button>
+
+            <!-- button icon -->
+        </div>
+    </div>
+    <script src="mazii.js"></script>
+    <script>
+        
+
+let speech = new SpeechSynthesisUtterance();
+
+let voices = [];
+
+let voiceSelect= document.querySelector('select');
+window.speechSynthesis.onvoiceschanged = () =>{
+    voices = window.speechSynthesis.getVoices();
+    speech.voice = voices[0];
+
+    voices.forEach((voice, i)=>(voiceSelect.options[i]= new Option(voice.name,i)));
+
+};
+
+voiceSelect.addEventListener('change', () =>{
+    speech.voice = voices[voiceSelect.value]
+})
+
+document.querySelector('button').addEventListener('click', ()=>{
+    speech.text = document.querySelector('textarea').value;
+    window.speechSynthesis.speak(speech)
+});
+
+
+
+    </script>
+</body>
+</html><!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text to Speech Converter</title>
+</head>
+<body>
+  <h1>Text to Speech Converter</h1>
+  <textarea id="textToSpeak" rows="4" cols="50" placeholder="Enter text or upload a file..."></textarea>
+  <input type="file" id="fileInput">
+  <button id="speakButton">Speak</button>
+  <label for="voiceSelect">Select a voice:</label>
+  <select id="voiceSelect"></select>
+
+  <script>
+    // Check if the Web Speech API is available in the browser
+    if ('speechSynthesis' in window) {
+      const speechSynthesis = window.speechSynthesis;
+
+      // Get DOM elements
+      const textToSpeakInput = document.getElementById('textToSpeak');
+      const fileInput = document.getElementById('fileInput');
+      const speakButton = document.getElementById('speakButton');
+      const voiceSelect = document.getElementById('voiceSelect');
+
+      // Function to speak the given text
+      function speakText(text, voice) {
+        if (text.trim() !== '') {
+          const utterance = new SpeechSynthesisUtterance(text);
+          if (voice) {
+            utterance.voice = voice;
+          }
+          speechSynthesis.speak(utterance);
+        }
+      }
+
+      // Function to handle file upload
+      function handleFileUpload() {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const fileContent = event.target.result;
+          textToSpeakInput.value = fileContent;
+        };
+        reader.readAsText(file);
+      }
+
+      // Populate the voice selection dropdown
+      function populateVoiceList() {
+        const voices = speechSynthesis.getVoices();
+        voiceSelect.innerHTML = '';
+        voices.forEach((voice) => {
+          const option = document.createElement('option');
+          option.value = voice.name;
+          option.textContent = voice.name;
+          voiceSelect.appendChild(option);
+        });
+      }
+
+      // Event listeners
+      speakButton.addEventListener('click', () => {
+        const text = textToSpeakInput.value;
+        const selectedVoiceName = voiceSelect.value;
+        const selectedVoice = speechSynthesis.getVoices().find(voice => voice.name === selectedVoiceName);
+        speakText(text, selectedVoice);
+      });
+
+      fileInput.addEventListener('change', handleFileUpload);
+
+      speechSynthesis.addEventListener('voiceschanged', populateVoiceList);
+      populateVoiceList(); // Call it initially to populate the voices list.
+    } else {
+      // Web Speech API not supported
+      alert("Text to speech is not supported in this browser. Please try using a different browser.");
+    }
+  </script>
+</body>
+</html>
+-->
