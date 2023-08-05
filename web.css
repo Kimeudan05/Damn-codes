@@ -1,0 +1,73 @@
+/* Add your general styling here */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .toggle-icon {
+    display: none; /* Hidden by default for larger screens */
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    /* Media query for small screens */
+    .toggle-icon {
+      display: block; /* Display the toggle icon for small screens */
+    }
+  
+    .nav-links {
+      display: none; /* Hide the nav links initially on small screens */
+    }
+  
+    .nav-links.active {
+      /* display: inline-block; */
+      display: flex;
+      flex-direction: column;
+    /* Display the nav links when the toggle icon is clicked */
+    }
+  
+    nav {
+      /* flex-direction: row; */
+      /* align-items:center; */
+      /* justify-content: space-between; */
+    }
+  
+    nav li {
+      margin: 10px 0;
+    }
+  }
+  
